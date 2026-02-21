@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const title = 'Coming soon';
+const description = 'Coming soon.';
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="site-header">
+    <div class="container header-inner glass">
+      <a class="brand" href="/" aria-label="Robert Bewick home">
+        <img
+          class="brand-logo"
+          src="/pelagial-blue-logo.png"
+          alt="Pelagial Blue Consulting Ltd"
+          width="64"
+          height="64"
+          loading="eager"
+        />
+        <span class="brand-text">
+          <span class="brand-sub">Pelagial Blue Consulting Ltd.</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="/#downloads">Downloads</a>
+        <a href="/#services">Services</a>
+        <a href="/noon-report">The Noon Report</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" aria-label="Coming soon">
+      <div class="container">
+        <h1>Coming soon</h1>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

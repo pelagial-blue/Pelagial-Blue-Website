@@ -1,0 +1,186 @@
+LifeOS – Personal Desktop “Command‑Center” Product Requirements Document (PRD)
+
+1. Vision & Goals
+Goal
+Success Metric
+Unified view – all info visible without scrolling
+< 90 % of screen real‑estate used, no vertical scroll bar needed on a typical 1080p/1440p layout
+Fast triage – add tasks in a bullet box, assign severity in ≤ 2 s
+Average time to create a task ≤ 2 s (UI latency)
+AI‑driven guidance – natural‑language queries answered with relevant suggestions
+≥ 80 % of user‑asked queries answered satisfactorily (subjective rating)
+Calendar sync – pull events from work and personal calendars automatically
+All events from the past 30 days displayed correctly after first sync
+Local‑only data – no cloud storage, everything stays on the machine
+No outbound data traffic except optional AI calls
+Clean, single‑window UI – no secondary windows, minimal clutter
+User can complete the three core actions (add task, view agenda, ask AI) without opening another window
+
+2. Personas
+Persona
+Needs / Pain Points
+Me – “Power Organizer”
+Quick capture of tasks, immediate view of upcoming meetings, instant prioritisation without switching apps
+Future collaborators (optional)
+Ability to export a read‑only agenda or CSV dump for sharing
+
+3. Functional Requirements
+3.1 Core Modules
+Module
+Description
+Key Interactions
+Dashboard Window
+Resizable single window (≥ 1200 × 800 px) split into fixed panels: Agenda, Task, AI Query
+Drag‑resize panels; click a task to edit score; type a question and press Enter
+Task Manager
+CRUD for tasks stored locally (SQLite/JSON). Each task: title, severity (1‑5), optional tags, completion flag
+Quick‑add via “Triage Box”; inline editing; bulk delete/completion
+Calendar Sync Engine
+Connectors for iCal, Google Calendar, Outlook/Exchange (OAuth). Read‑only pull, cached, refreshed every 15 min or on demand
+Settings page to add/remove accounts; status indicator
+AI Companion
+Local LLM (e.g., Llama‑2‑7B GGML) or optional remote inference (API key). Provides daily summary, prioritisation suggestions, free‑form Q&A
+Text input → inference → formatted answer shown in AI panel
+Search & Filter
+Global fuzzy search across tasks & events; filter by severity, tag, date
+Shortcut Ctrl+Fopens overlay; results highlight matches
+Export/Import
+Export tasks + severity to CSV; import from CSV or plain‑text bullet list
+Menu → Export → CSV, Import → CSV
+Settings
+Toggle AI mode (local vs remote), calendar accounts, UI scaling, hotkeys
+Gear icon; changes saved instantly
+3.2 Detailed Feature List
+	•	Quick‑Add Triage Box – multiline textbox; each line becomes a task on Enter. Inline spinner for severity (default 3). Shortcut Ctrl+Alt+T focuses the box.
+	•	Agenda Panel – events grouped “Today”, “Tomorrow”, “Later This Week”. Color‑code work vs personal calendars (configurable). Hover tooltip shows location, attendees, notes.
+	•	AI Query Panel – single‑line input with autocomplete for common commands (today, free, prioritize). Response area supports markdown; copy‑to‑clipboard button.
+	•	Prioritisation Logic (fallback if AI disabled) – highest severity + earliest deadline. Displays “Suggested Task” badge next to top candidate.
+	•	Local Persistence – SQLite DB (lifeos.db) in user’s app‑data folder. Automatic backup on each app close.
+	•	Security & Privacy – AES‑256 encryption at rest (user‑provided passphrase). Calendar tokens stored in OS keyring. No telemetry unless opted‑in.
+	•	Accessibility – high‑contrast theme toggle; full keyboard navigation.
+
+4. Non‑Functional Requirements
+Category
+Requirement
+Performance
+UI launch ≤ 1 s; AI inference ≤ 2 s on typical laptop (i5‑8250U, 8 GB RAM)
+Reliability
+Crash‑free rate ≥ 99.5 % (auto‑save after each change)
+Portability
+Windows 10+, macOS 12+, Linux (Ubuntu 20.04+)
+Maintainability
+Modular code (UI, data, sync, AI). Unit‑test coverage ≥ 80 % for core logic
+Scalability
+DB schema ready for future multi‑profile expansion
+Usability
+All primary actions reachable within 2 clicks or a keyboard shortcut
+Internationalisation
+UI strings externalised; English default, ready for translation
+
+5. UI / UX Sketch (textual)
++--------------------------------------------------------------+
+|  LifeOS – Dashboard (single window, resizable)               |
+|--------------------------------------------------------------|
+|  Agenda (left pane, 40% width)                               |
+|  ----------------------------------------------------------  |
+|  | Today (08:00 – 17:00)                                    | |
+|  | • 09:00 Team stand‑up (Work)                             | |
+|  | • 11:30 Doctor appointment (Personal)                    | |
+|  | • 14:00 Project review (Work)                            | |
+|  | -------------------------------------------------------- | |
+|  | Tomorrow                                                 | |
+|  | • 10:00 Sprint planning                                   | |
+|  ----------------------------------------------------------  |
+|                                                              |
+|  Task & AI (right pane, 60% width)                          |
+|  ----------------------------------------------------------  |
+|  | Triage Box (quick add)                                   | |
+|  | > [______________________________]  (Enter)            | |
+|  |   Severity: [3 ▼]                                         | |
+|  ----------------------------------------------------------  |
+|  | To‑Do List                                               | |
+|  | • [ ] Write report          (Score: 5)   ☐ Edit ✎ Delete | |
+|  | • [ ] Grocery shopping      (Score: 2)   ☐ Edit ✎ Delete | |
+|  ----------------------------------------------------------  |
+|  | AI Companion                                            | |
+|  | > What does my day look like?  (Enter)                  | |
+|  |   ── Answer ────────────────────────────────────────   | |
+|  |   • 2 hrs free after 12:30 – finish “Write report”.     | |
+|  ----------------------------------------------------------  |
++--------------------------------------------------------------+
+
+No vertical scrollbars: Panels auto‑shrink/expand; overflow handled by ellipsis or “Show more” overlay (temporary, not a new window).
+
+6. Technical Architecture
+	•	Frontend – Electron (JS/HTML/CSS) or Tauri (Rust + WebView) for native cross‑platform UI.
+	•	Backend / Data Layer – Node.js (Electron) or Rust (Tauri) handling SQLite, encryption, OAuth flows.
+	•	AI Engine – Default: Local GGML‑quantized LLM (Llama‑2‑7B) via llama.cpp. Optional Remote: OpenAI/Anthropic API behind user‑provided key (toggle).
+	•	Calendar Connectors – Libraries such as node-google-calendar, node-outlook-calendar, or generic ical.js.
+	•	Encryption – libsodium or built‑in crypto module (AES‑256, PBKDF2‑derived key).
+	•	Packaging – electron-builder or cargo-tauri to produce installers for Windows, macOS, Linux.
+
+7. Development Roadmap (MVP → 1.0)
+Sprint
+Deliverable
+Notes
+Sprint 0(1 wk)
+Project scaffolding, CI, basic window layout
+Choose Electron vs Tauri early
+Sprint 1(2 wks)
+Task Manager (CRUD, severity UI) + local persistence
+Unit tests for DB ops
+Sprint 2(2 wks)
+Calendar Sync Engine (Google + iCal) – read‑only
+OAuth flow, token storage
+Sprint 3(2 wks)
+AI Companion – integrate local LLM (offline inference)
+Benchmark inference time
+Sprint 4(1 wk)
+UI polish – fixed‑panel layout, no‑scroll guarantee, hotkeys
+
+Sprint 5(1 wk)
+Export/Import, search/filter, settings page
+
+Sprint 6(1 wk)
+Encryption at rest, keyring integration, privacy checklist
+
+Sprint 7(1 wk)
+Cross‑platform packaging, installer testing
+
+Sprint 8(1 wk)
+Beta testing (self‑use), bug‑fixes, documentation
+
+Release 1.0
+Public download (GitHub releases) + README with setup guide
+
+Buffer: 1 week slack for unexpected issues.
+
+8. Risks & Mitigations
+Risk
+Impact
+Mitigation
+AI latency on low‑end hardware
+Poor UX (slow answers)
+Offer remote inference fallback; allow disabling AI
+OAuth token expiry
+Calendar sync stops
+Auto‑refresh tokens; UI warning with “Reconnect” button
+Data loss on crash
+User loses tasks
+Auto‑commit after each edit; periodic backup snapshots
+Cross‑platform UI inconsistencies
+Inconsistent look
+Use a UI framework (Tailwind + CSS reset); test on all OSes each sprint
+Encryption key forgetfulness
+User locked out of data
+One‑time recovery phrase (optional) + clear first‑setup warning
+
+9. Acceptance Criteria (MVP)
+	•	Installable binary runs on Windows/macOS/Linux.
+	•	Single window opens with three panels (agenda, tasks, AI).
+	•	User can add/edit/delete tasks with severity scores in ≤ 2 seconds.
+	•	Calendar events from at least one provider appear correctly.
+	•	AI query “What does my day look like?” returns a readable summary within 2 seconds.
+	•	All data persisted locally and encrypted; on restart, previous state restored.
+	•	No scrolling required to see the three core panels on a 1080p monitor.
+

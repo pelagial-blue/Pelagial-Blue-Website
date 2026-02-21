@@ -1,0 +1,801 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
+
+const title = 'Robert Bewick — GTM & advisory for maritime tech';
+const description =
+  'GTM support and maritime tech advisory for early-stage organisations building maritime and shipping solutions, delivered via Pelagial Blue Consulting Ltd.';
+---
+
+<BaseLayout title={title} description={description}>
+  <header class="site-header">
+    <div class="container header-inner glass">
+      <a class="brand" href="#top" aria-label="Robert Bewick home">
+        <img
+          class="brand-logo"
+          src="/pelagial-blue-logo.png"
+          alt="Pelagial Blue Consulting Ltd"
+          width="64"
+          height="64"
+          loading="eager"
+        />
+        <span class="brand-text">
+          <span class="brand-sub">Pelagial Blue Consulting Ltd.</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#downloads">Downloads</a>
+        <a href="/noon-report">The Noon Report</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="btn"
+          href="https://www.linkedin.com/in/robertbewick/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>
+            Maritime tech advisory.
+          </h1>
+
+          <div
+            class="segmented"
+            role="group"
+            aria-label="Choose what’s most relevant"
+            data-services-toggle
+            data-services-toggle-location="hero"
+          >
+            <button class="segmented-btn" type="button" data-services-target="sellers" aria-pressed="true">
+              I sell maritime tech
+            </button>
+            <button class="segmented-btn" type="button" data-services-target="buyers" aria-pressed="false">
+              I’m buying maritime tech
+            </button>
+          </div>
+
+          <p class="hero-sub" data-journey-copy="sellers">
+            I advise maritime tech sellers on positioning, commercial strategy, and sales execution—so you can
+            sharpen your narrative, improve buyer conversations, and build a more repeatable pipeline.
+          </p>
+
+          <p class="hero-sub" data-journey-copy="buyers" hidden>
+            I advise maritime tech buyers on requirements, evaluation, and common pitfalls—so you can run a
+            clearer selection process, compare vendors properly, and choose tools that will actually land.
+          </p>
+
+          <div id="services" class="hero-services" aria-label="Services">
+            <div class="hero-services-grid" data-services-panel="sellers">
+              <article class="card">
+                <h3>Positioning & messaging</h3>
+                <p>
+                  Buyer-aligned story, crisp value propositions, and proof points that land in maritime and
+                  shipping contexts.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Sales enablement</h3>
+                <p>
+                  Decks, one-pagers, discovery flows, qualification, and objection handling to make selling
+                  consistent.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Pipeline & partnerships</h3>
+                <p>
+                  Outreach strategy, partner mapping, and practical process improvements to increase quality
+                  opportunities.
+                </p>
+              </article>
+              <article class="card">
+                <h3>GTM planning</h3>
+                <p>
+                  ICP definition, segmentation, pricing/packaging input, and an operating cadence that works
+                  for lean teams.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Marketing support</h3>
+                <p>
+                  Content direction for credibility: case studies, webinars, landing pages, and campaign
+                  messaging.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Founder coaching</h3>
+                <p>
+                  Weekly check-ins to sharpen judgement, prioritise, and keep commercial execution moving.
+                </p>
+              </article>
+            </div>
+
+            <div class="hero-services-grid" data-services-panel="buyers" hidden>
+              <article class="card">
+                <h3>Requirements & fit</h3>
+                <p>
+                  Define what “good” looks like: outcomes, workflows, data, and constraints across stakeholders.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Vendor shortlist</h3>
+                <p>
+                  Turn a crowded market into a focused shortlist with clear decision criteria and trade-offs.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Evaluation support</h3>
+                <p>
+                  Structured demos, scoring, and stakeholder alignment so you can compare like-for-like.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Process review</h3>
+                <p>
+                  Review current ways of working and identify where software will genuinely help (and where it
+                  won’t).
+                </p>
+              </article>
+              <article class="card">
+                <h3>Pitfalls & procurement</h3>
+                <p>
+                  Avoid common traps: unclear ownership, weak adoption plans, and misaligned timelines.
+                </p>
+              </article>
+              <article class="card">
+                <h3>Implementation readiness</h3>
+                <p>
+                  Practical next steps for rollout: change management, training, and success measures.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="hero-photo-wrap glass" aria-label="Portrait">
+            <img
+              class="hero-photo"
+              src="/RB%20(Cyan).png"
+              alt="Portrait of Robert Bewick"
+              width="900"
+              height="900"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads" class="section" aria-label="Downloads">
+      <div class="container">
+        <h2>Downloads</h2>
+        <p class="lede">
+          Practical resources for teams selling maritime tech and for buyers evaluating it. Downloads will be
+          gated (name + email) when the resources are released.
+        </p>
+
+        <div class="grid cols-2" style="margin-top: 18px;">
+          <article class="card">
+            <h3>Resource (coming soon)</h3>
+            <p>A short, practical resource you can use immediately. Delivered via email.</p>
+            <div style="margin-top: 14px;">
+              <a class="btn primary" href="#contact">Register interest</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Resource (coming soon)</h3>
+            <p>A deeper guide to help you make better decisions and avoid common pitfalls.</p>
+            <div style="margin-top: 14px;">
+              <a class="btn primary" href="#contact">Register interest</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-label="Contact">
+      <div class="container">
+        <div class="contact glass">
+          <div>
+            <h2>Contact</h2>
+            <p class="lede">
+              <span class="contact-cta-line">
+                Selling maritime tech and want sharper positioning, better buyer conversations, or a more
+                repeatable pipeline?
+              </span>
+              <span class="contact-cta-line">
+                Buying maritime tech and want clearer requirements, a cleaner evaluation, or a more confident
+                decision?
+              </span>
+              <span class="contact-cta-line contact-cta-talk">
+                Let’s talk.
+              </span>
+            </p>
+
+            <div class="contact-actions">
+              <a class="btn primary" href="mailto:pelagial.blue@gmail.com?subject=Intro%20via%20personal%20site">Email me</a>
+              <a class="btn" href="https://www.linkedin.com/in/robertbewick/" target="_blank" rel="noreferrer">
+                Message on LinkedIn
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="contact-email">
+              <span class="label">Email</span>
+              <a class="value" href="mailto:pelagial.blue@gmail.com?subject=Intro%20via%20personal%20site">pelagial.blue@gmail.com</a>
+            </div>
+
+            <p class="fineprint">
+              Prefer a quick note? Include: whether you’re selling or buying, what you’re evaluating/building,
+              key stakeholders, timeline, and what you’re trying to achieve in the next 90 days.
+            </p>
+          </div>
+
+          <div class="contact-panel">
+            <div class="contact-map">
+              <img
+                src="/borough-green.png"
+                alt="Map showing a pin near Borough Green, Kent, UK"
+                loading="lazy"
+              />
+            </div>
+            <div class="contact-item">
+              <div class="label">Location</div>
+              <div class="value">Borough Green, Kent, UK</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="muted">© {new Date().getFullYear()} Robert Bewick</div>
+      <div class="footer-links">
+        <a href="#downloads">Downloads</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    const toggles = Array.from(document.querySelectorAll('[data-services-toggle]'));
+
+    if (toggles.length) {
+      const panels = Array.from(document.querySelectorAll('[data-services-panel]'));
+      const journeyCopy = Array.from(document.querySelectorAll('[data-journey-copy]'));
+      let activeTarget = 'sellers';
+
+      const syncButtons = (target) => {
+        for (const toggle of toggles) {
+          const buttons = Array.from(toggle.querySelectorAll('[data-services-target]'));
+          for (const btn of buttons) {
+            const isActive = btn.getAttribute('data-services-target') === target;
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            btn.classList.toggle('active', isActive);
+          }
+        }
+      };
+
+      const syncPanels = (target) => {
+        for (const panel of panels) {
+          const match = panel.getAttribute('data-services-panel') === target;
+          if (match) panel.removeAttribute('hidden');
+          else panel.setAttribute('hidden', '');
+        }
+      };
+
+      const syncJourneyCopy = (target) => {
+        for (const el of journeyCopy) {
+          const match = el.getAttribute('data-journey-copy') === target;
+          if (match) el.removeAttribute('hidden');
+          else el.setAttribute('hidden', '');
+        }
+      };
+
+      const show = (target, opts = {}) => {
+        activeTarget = target;
+        syncButtons(target);
+        syncPanels(target);
+        syncJourneyCopy(target);
+      };
+
+      for (const toggle of toggles) {
+        const buttons = Array.from(toggle.querySelectorAll('[data-services-target]'));
+        for (const btn of buttons) {
+          btn.addEventListener('click', () =>
+            show(btn.getAttribute('data-services-target'))
+          );
+        }
+      }
+
+      show(activeTarget);
+    }
+
+  </script>
+
+  <style>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-services {
+      margin-top: 18px;
+    }
+
+    .hero-services-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: 980px) {
+      .hero-services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero-services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 14px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      line-height: 1.05;
+    }
+
+    .brand-sub {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-name {
+      font-weight: 750;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-logo {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 14px;
+      padding: 8px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav {
+      display: none;
+      gap: 18px;
+      color: rgba(255, 255, 255, 0.78);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .nav a {
+      padding: 10px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero {
+      padding: 54px 0 26px;
+    }
+
+    .hero-inner {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-aside {
+      display: grid;
+      gap: 18px;
+      position: relative;
+      top: 64px;
+    }
+
+    .hero-photo-wrap {
+      padding: 12px;
+      width: 100%;
+    }
+
+    @media (max-width: 560px) {
+      .hero-aside {
+        top: 0;
+      }
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: 50% 12%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .hero-copy h1 {
+      margin: 16px 0 12px;
+      font-size: clamp(30px, 4.2vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-sub {
+      margin: 0;
+      max-width: 70ch;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 16px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--brand3);
+      box-shadow: 0 0 0 6px rgba(77, 254, 209, 0.14);
+    }
+
+    .segmented {
+      margin-top: 16px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .segmented ~ .hero-sub {
+      margin-top: 16px;
+    }
+
+    .segmented-btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.82);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .segmented-btn:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .segmented-btn.active {
+      border-color: rgba(77, 254, 209, 0.34);
+      background: linear-gradient(135deg, rgba(77, 254, 209, 0.14), rgba(11, 58, 99, 0.18));
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .label {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .value {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.86);
+      margin-top: 4px;
+    }
+
+    .about {
+      margin-top: 18px;
+    }
+
+    .about-panel {
+      padding: 18px;
+    }
+
+    .about-intro {
+      display: grid;
+      gap: 16px;
+      align-items: start;
+      margin-top: 16px;
+    }
+
+    .about-lede {
+      margin: 0;
+      max-width: none;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: 50% 18%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.03);
+      display: block;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .point {
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .steps {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .step-n {
+      width: 30px;
+      height: 30px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(77, 254, 209, 0.22), rgba(11, 58, 99, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 700;
+    }
+
+    .step-t {
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .step-d {
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+    }
+
+    .contact {
+      padding: 18px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .contact-email {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .contact-email a.value {
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: underline;
+      text-decoration-color: rgba(77, 254, 209, 0.35);
+      text-underline-offset: 3px;
+    }
+
+    .contact-email a.value:hover {
+      text-decoration-color: rgba(77, 254, 209, 0.60);
+    }
+
+    .contact-cta-line {
+      display: block;
+    }
+
+    .contact-cta-line + .contact-cta-line {
+      margin-top: 10px;
+    }
+
+    .contact-cta-talk {
+      margin-top: 12px;
+    }
+
+    .fineprint {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 13px;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .contact-map {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .contact-map img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-item {
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .site-footer {
+      padding: 34px 0 40px;
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: rgba(255, 255, 255, 0.72);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    @media (min-width: 900px) {
+      .nav {
+        display: inline-flex;
+      }
+
+      .brand-text {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 10px;
+        white-space: nowrap;
+      }
+
+      .brand-sub {
+        font-size: 14px;
+      }
+
+      .brand-sub::after {
+        content: " /";
+        color: rgba(255, 255, 255, 0.48);
+        font-weight: 600;
+        margin-left: 6px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: start;
+      }
+
+      .hero-aside {
+        margin-top: 0;
+        top: 64px;
+      }
+
+      .hero-metrics {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .contact {
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: start;
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .about-intro {
+        grid-template-columns: minmax(220px, 300px) 1fr;
+        column-gap: 12px;
+      }
+    }
+  </style>
+</BaseLayout>
