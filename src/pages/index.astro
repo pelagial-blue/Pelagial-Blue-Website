@@ -441,8 +441,6 @@ const description =
     .hero-aside {
       display: grid;
       gap: 18px;
-      position: relative;
-      top: 64px;
     }
 
     .hero-photo-wrap {
@@ -757,12 +755,14 @@ const description =
 
       .hero-inner {
         grid-template-columns: 1.2fr 0.8fr;
-        align-items: start;
+        align-items: stretch;
       }
 
       .hero-aside {
-        margin-top: 0;
-        top: 64px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-top: 92px;
       }
 
       .hero-metrics {
